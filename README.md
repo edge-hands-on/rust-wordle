@@ -1,4 +1,4 @@
-[![CI](https://github.com/edge-hands-on/rust-wordle/actions/workflows/rust.yml/badge.svg)](https://github.com/edge-hands-on/rust-wordle/actions/workflows/rust.yml)
+[![CI](https://github.com/edge-hands-on/rust-wordle/actions/workflows/ci.yml/badge.svg)](https://github.com/edge-hands-on/rust-wordle/actions/workflows/ci.yml)
 
 # Wordle implemented in Rust!
 
