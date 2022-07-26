@@ -1,5 +1,16 @@
-pub fn matches(_word: String, _guess: String) -> String {
-    return String::from("WRONG")
+pub fn matches(word: String, guess: String) -> String {
+    let mut result = String::from("");
+    for (i, word_char) in word.chars().enumerate() {
+        let guess_char = guess.chars().nth(i).unwrap();
+        if word_char == guess_char {
+            result.push('[');
+            result.push(word_char);
+            result.push(']');
+        } else {
+            result.push(guess_char)
+        }
+    }
+    return result;
 }
 
 #[cfg(test)]
