@@ -14,12 +14,12 @@ pub fn matches(word: String, guess: String) -> String {
 #[cfg(test)]
 mod tests {
     use crate::matcher::matches;
+    use rstest::rstest;
 
-    #[test]
-    fn it_works() {
-        assert_eq!(
-            matches(String::from("JAZZY"), String::from("CRAZY")),
-            String::from("00211")
-        )
+    #[rstest]
+    #[case("JAZZY", "JAZZY", "11111")]
+    #[case("JAZZY", "CRAZY", "00211")]
+    fn it_works(#[case] word: String, #[case] guess: String, #[case] output: String) {
+        assert_eq!(matches(word, guess), output)
     }
 }
