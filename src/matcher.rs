@@ -3,11 +3,9 @@ pub fn matches(word: String, guess: String) -> String {
     for (i, word_char) in word.chars().enumerate() {
         let guess_char = guess.chars().nth(i).unwrap();
         if word_char == guess_char {
-            result.push('[');
-            result.push(word_char);
-            result.push(']');
+            result.push('1');
         } else {
-            result.push(guess_char)
+            result.push('0')
         }
     }
     return result;
@@ -21,7 +19,7 @@ mod tests {
     fn it_works() {
         assert_eq!(
             matches(String::from("JAZZY"), String::from("CRAZY")),
-            String::from("CR(A)[Z][Y]")
+            String::from("00211")
         )
     }
 }
