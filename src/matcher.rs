@@ -30,6 +30,7 @@ mod tests {
     #[case("JAZZY", "JAZZY", "11111")]
     #[case("JAZZY", "CRAZY", "00211")]
     #[case("CRAZY", "CRAZC", "11110")]
+    #[case("CRAZY", "IIIII", "00000")]
     fn it_works(#[case] word: String, #[case] guess: String, #[case] output: String) {
         assert_eq!(matches(word, guess), output)
     }
