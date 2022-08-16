@@ -1,5 +1,4 @@
 use std::fs;
-use std::ops::Range;
 use rand::Rng;
 use rand::rngs::StdRng;
 use rand::SeedableRng;
