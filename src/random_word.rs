@@ -16,17 +16,15 @@ pub fn get_random_word(filename: &str, seed: u64) -> String {
     return word_vector[rng.gen_range(0..word_vector.len())].trim().to_string();
 }
 
-// #[cfg(test)]
-// mod tests {
-//     use crate::matcher::matches;
-//     use rstest::rstest;
-//
-//     #[rstest]
-//     #[case("JAZZY", "JAZZY", "11111")]
-//     #[case("JAZZY", "CRAZY", "00211")]
-//     #[case("CRAZY", "CRAZC", "11110")]
-//     #[case("CRAZY", "IIIII", "00000")]
-//     fn it_works(#[case] word: String, #[case] guess: String, #[case] output: String) {
-//         assert_eq!(matches(word, guess), output)
-//     }
-// }
+#[cfg(test)]
+mod tests {
+    use crate::random_word::get_random_word;
+    use rstest::rstest;
+
+    #[rstest]
+    #[case("words.txt", 13, "musks")]
+    #[case("words.txt", 112400000, "ocean")]
+    fn test_get_random_word(#[case] filename: &str, #[case] seed: u64, #[case] output: String) {
+        assert_eq!(get_random_word(filename, seed), output)
+    }
+}
