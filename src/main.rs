@@ -1,36 +1,25 @@
-use crate::random_word::get_random_word;
-use crate::matcher::matches;
-use std::time::{SystemTime, UNIX_EPOCH};
-use std::io::{stdin};
+use std::time::{UNIX_EPOCH, SystemTime};
 
 mod matcher;
 mod random_word;
+mod game;
+mod word_list;
 
 fn main() {
-    let mut guess_count = 6;
+    
+    let mut seed = SystemTime::now()
+    .duration_since(UNIX_EPOCH)
+    .expect("Time went backwards")
+    .as_secs();
+    
+    let mut word_list = word_list::WordList::new("words.txt", seed);
+    
 
-    let seed = SystemTime::now()
-        .duration_since(UNIX_EPOCH)
-        .expect("Time went backwards")
-        .as_secs();
+    let mut game = game::Game {
+        guess_count: 2,
+        word_list: word_list
+    };
 
-    let word = get_random_word("words.txt", seed);
-    println!("Chosen word: {}\n", word);
-
-    while guess_count > 0 {
-        let mut guess = String::new();
-        println!("Please enter your guess: ");
-        stdin().read_line(&mut guess).expect("Did not enter a correct string");
-        guess = guess.trim().to_string();
-
-        if guess.eq(&word) {
-            println!("You win! The word was {}.", word);
-            return;
-        }
-        
-        let result = matches(&word, guess);
-        println!("Your current result: {}", result);
-
-       guess_count -= 1;
-    }
+    game.run();
+    
 }
