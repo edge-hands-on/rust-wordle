@@ -18,7 +18,7 @@ cargo run
 wasm-pack build --target web
 ```
 
-Then open [index.html](index.html) from IDE.
+Then open locally [index.html](index.html) from IDE or push it to main branch and go to https://edge-hands-on.github.io/rust-wordle/
 
 ## Interesting Links
 
