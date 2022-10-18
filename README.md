@@ -6,6 +6,20 @@
 
 [Rust is blazingly fast and memory-efficient ...](https://www.rust-lang.org/)
 
+## Run executable
+
+```shell
+cargo run
+```
+
+## Build webassembly
+
+```shell
+wasm-pack build --target web
+```
+
+Then open [index.html](index.html) from IDE.
+
 ## Interesting Links
 
 * [Tour of Rust - Let's go on an adventure!](https://tourofrust.com/)

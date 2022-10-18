@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>rust-wordle</title>
+</head>
+<body>
+<script type="module">
+    import init, {smile} from "./pkg/rust_wordle.js"
+    init()
+        .then(() => {
+            smile()
+        })
+</script>
+<div>
+    <p id="message"></p>
+    <canvas id="canvas" height="150" width="150"></canvas>
+</div>
+</body>
+</html>
