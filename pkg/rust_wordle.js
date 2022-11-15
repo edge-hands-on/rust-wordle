@@ -177,6 +177,12 @@ function getStringFromWasm0(ptr, len) {
 }
 /**
 */
+export function get_user_input() {
+    wasm.get_user_input();
+}
+
+/**
+*/
 export function smile() {
     wasm.smile();
 }
@@ -282,6 +288,23 @@ function getImports() {
     }, arguments) };
     imports.wbg.__wbg_moveTo_15a09390bee05586 = function(arg0, arg1, arg2) {
         getObject(arg0).moveTo(arg1, arg2);
+    };
+    imports.wbg.__wbg_instanceof_HtmlInputElement_970e4026de0fccff = function(arg0) {
+        let result;
+        try {
+            result = getObject(arg0) instanceof HTMLInputElement;
+        } catch {
+            result = false;
+        }
+        const ret = result;
+        return ret;
+    };
+    imports.wbg.__wbg_value_b2a620d34c663701 = function(arg0, arg1) {
+        const ret = getObject(arg1).value;
+        const ptr0 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len0;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr0;
     };
     imports.wbg.__wbg_instanceof_HtmlCanvasElement_97761617af6ea089 = function(arg0) {
         let result;

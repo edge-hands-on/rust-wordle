@@ -6,15 +6,20 @@
 </head>
 <body>
 <script type="module">
-    import init, {smile} from "./pkg/rust_wordle.js"
+    import init, {smile, get_user_input} from "./pkg/rust_wordle.js"
     init()
         .then(() => {
             smile()
+            const rustButton = document.getElementById("rust_button")
+            rustButton.addEventListener("click", () => {
+                get_user_input()
+            })
         })
 </script>
 <div>
     <input id="user_input"/>
     <p id="rust_output"></p>
+    <button id="rust_button">Rust</button>
     <p id="message"></p>
     <canvas id="canvas" height="150" width="150"></canvas>
 </div>
