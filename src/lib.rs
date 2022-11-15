@@ -3,6 +3,26 @@ use wasm_bindgen::JsCast;
 use std::f64;
 
 #[wasm_bindgen]
+pub fn get_user_input() {
+    let document = web_sys::window().unwrap().document().unwrap();
+
+    let input = document.get_element_by_id("user_input")
+        .unwrap()
+        .dyn_into::<web_sys::HtmlInputElement>()
+        .map_err(|_| ())
+        .unwrap()
+        .value();
+
+    let output: web_sys::Element = document.get_element_by_id("rust_output")
+        .unwrap()
+        .dyn_into::<web_sys::Element>()
+        .map_err(|_| ())
+        .unwrap();
+
+    output.set_inner_html(&input);
+}
+
+#[wasm_bindgen]
 pub fn smile() {
     let document = web_sys::window().unwrap().document().unwrap();
     let canvas = document.get_element_by_id("canvas").unwrap();
