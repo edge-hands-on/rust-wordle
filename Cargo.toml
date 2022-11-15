@@ -22,5 +22,6 @@ features = [
     'Document',
     'Element',
     'HtmlCanvasElement',
+    'HtmlInputElement',
     'Window',
 ]
